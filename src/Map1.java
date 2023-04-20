@@ -1,6 +1,4 @@
-import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 public class Map1 {
     //Ex. => mapBully -
@@ -87,12 +85,5 @@ public class Map1 {
         }
     }
     return map;
-    }
-
-    //Ex. => topping1 -
-    //Ex. => topping1 -
-    public static void main(String[] args) {
-
-
     }
 }
