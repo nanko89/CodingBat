@@ -118,10 +118,31 @@ public class Map2 {
         return result;
     }
 
+    //Ex. => allSwap -
+    public static String[] firstSwap(String[] strings) {
+
+       Map<String, Integer> map = new HashMap<>();
+        String[] result = strings.clone();
+        for (int i = 0; i < strings.length-1; i++) {
+            for (int j = i+1; j < strings.length; j++) {
+
+                if (!strings[j].equals("") && !strings[i].equals("") && strings[i].charAt(0) == strings[j].charAt(0) && !map.containsKey(strings[i].substring(0,1))){
+                    map.put(strings[i].substring(0,1), i);
+                    result[j] =strings[i];
+                    result[i] = strings[j];
+                    strings[i] = "";
+                    strings[j] = "";
+                    i++;
+                    j = i;
+                }
+            }
+        }
+        return result;
+    }
+
+
     public static void main(String[] args) {
-//        allSwap(new String[]{"ax", "bx", "cx", "cy", "by", "ay", "aaa", "azz"});
-//        allSwap(new String[]{"ab", "ac"});
-        allSwap(new String[]{"ax", "bx", "ay", "by", "ai", "aj", "bx", "by"});
+        firstSwap(new String[]{"ax", "bx", "cx", "cy", "by", "ay", "aaa", "azz"});
     }
 
 
