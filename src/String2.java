@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class String2 {
     //Ex. => doubleChar -
     public String doubleChar(String str) {
@@ -202,10 +204,32 @@ public class String2 {
         return isValid;
     }
 
+    //Ex. => sameStarChar -
+    public static String oneTwo(String str) {
+        if (str.length() < 3){
+            return "";
+        }
+        if (str.length() == 3) {
+            return str.substring(1) + str.substring(0, 1);
+        }
+        char[] array = str.toCharArray();
 
-    public static void main(String[] args) {
-        System.out.println(sameStarChar("*xa*a*"));
+        for (int i = 0; i < array.length; i++) {
+            if (i % 3 == 0) {
+                if (i + 2 < str.length()) {
+                    char first = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = array[i + 2];
+                    array[i + 2] = first;
+                }
+            }
+        }
+        int lastIndex = array.length;
+        if (array.length % 3 != 0){
+            lastIndex = array.length - array.length % 3;
+        }
+        StringBuilder result = new StringBuilder();
+        Arrays.stream(new char[][]{array}).forEach(l -> result.append(l));
+        return result.toString().substring(0, lastIndex);
     }
-
-
 }
