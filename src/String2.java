@@ -257,7 +257,7 @@ public class String2 {
         }
     }
 
-    //Ex. => zipZap -
+    //Ex. => starOut -
     public static String starOut(String str) {
         if (str.equals("*")){
             return "";
@@ -287,10 +287,28 @@ public class String2 {
         return str;
     }
 
-    public static void main(String[] args) {
+    //Ex. => starOut -
+    public static String plusOut(String str, String word) {
+       String result = "";
 
-        System.out.println(starOut("stringy*"));
-        System.out.println(starOut("sm***eil*ly"));
-//        System.out.println(starOut("sm**eil*ly"));
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == word.charAt(0)){
+                if (str.substring(i, i+word.length()).equals(word)){
+                    result += word;
+                    i += word.length() - 1;
+                }else {
+                    result += "+";
+                }
+            }else{
+                result += "+";
+            }
+        }
+
+
+       return result;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(plusOut("12xy34", "xy"));
     }
 }
