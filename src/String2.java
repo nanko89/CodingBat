@@ -236,7 +236,6 @@ public class String2 {
     }
 
     //Ex. => zipZap -
-
     public static String zipZap(String str) {
         boolean isExistZP = false;
         StringBuilder result = new StringBuilder();
@@ -256,11 +255,42 @@ public class String2 {
         } else {
             return str;
         }
+    }
 
+    //Ex. => zipZap -
+    public static String starOut(String str) {
+        if (str.equals("*")){
+            return "";
+        }
+           while (str.contains("*")){
+               int index = str.indexOf("*");
+               if (index == 0){
+                   if (str.charAt(index + 1) == '*'){
+                           str = str.substring(index + 3);
+                   }else{
+                       str = str.substring(index+2);
+                   }
+               }else if (index == str.length() - 1){
+                   str = str.substring(0, index-1) ;
+               }else {
+                   if (str.charAt(index + 1) == '*'){
+                       if (index + 4 < str.length() && str.charAt(index + 2) == '*'){
+                           str =  str.substring(0, index - 1) + str.substring(index + 4);
+                       }else {
+                           str = str.substring(0, index - 1) + str.substring(index + 3);
+                       }
+                   }else{
+                       str = str.substring(0, index-1) + str.substring(index+2);
+                   }
+               }
+        }
+        return str;
     }
 
     public static void main(String[] args) {
 
-        System.out.println(zipZap("zp"));
+        System.out.println(starOut("stringy*"));
+        System.out.println(starOut("sm***eil*ly"));
+//        System.out.println(starOut("sm**eil*ly"));
     }
 }
