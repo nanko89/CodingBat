@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class String2 {
     //Ex. => doubleChar -
@@ -195,7 +197,7 @@ public class String2 {
                         } else {
                             isValid = false;
                         }
-                    }else if(str.length() == 1 || str.equals("**")){
+                    } else if (str.length() == 1 || str.equals("**")) {
                         isValid = true;
                     }
                 }
@@ -206,7 +208,7 @@ public class String2 {
 
     //Ex. => sameStarChar -
     public static String oneTwo(String str) {
-        if (str.length() < 3){
+        if (str.length() < 3) {
             return "";
         }
         if (str.length() == 3) {
@@ -225,11 +227,40 @@ public class String2 {
             }
         }
         int lastIndex = array.length;
-        if (array.length % 3 != 0){
+        if (array.length % 3 != 0) {
             lastIndex = array.length - array.length % 3;
         }
         StringBuilder result = new StringBuilder();
         Arrays.stream(new char[][]{array}).forEach(l -> result.append(l));
         return result.toString().substring(0, lastIndex);
+    }
+
+    //Ex. => zipZap -
+
+    public static String zipZap(String str) {
+        boolean isExistZP = false;
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < str.length() - 2; i++) {
+            if (str.charAt(i) == 'z' && str.charAt(i + 2) == 'p') {
+                isExistZP = true;
+                result.append("zp");
+                i += 2;
+            } else {
+                result.append(str.charAt(i));
+            }
+        }
+
+        if (isExistZP) {
+            return result.toString();
+        } else {
+            return str;
+        }
+
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println(zipZap("zp"));
     }
 }
