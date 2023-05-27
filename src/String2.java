@@ -287,7 +287,7 @@ public class String2 {
         return str;
     }
 
-    //Ex. => starOut -
+    //Ex. => plusOut -
     public static String plusOut(String str, String word) {
        String result = "";
 
@@ -303,12 +303,43 @@ public class String2 {
                 result += "+";
             }
         }
-
-
        return result;
     }
 
-    public static void main(String[] args) {
-        System.out.println(plusOut("12xy34", "xy"));
+    //Ex. => plusOut -
+    public static String wordEnds(String str, String word) {
+
+        String result = "";
+
+        while (str.contains(word)){
+
+            int index = str.indexOf(word);
+            if (index > 0){
+                result += str.charAt(index-1);
+            }
+            if (index < str.length() - word.length()){
+                result += str.charAt(index+word.length());
+            }
+            str = str.replaceFirst(word, "");
+            int nextIndex = str.indexOf(word);
+            if (index == nextIndex){
+                result += word.charAt(word.length() -1);
+                if (index == str.length() - 1){
+                    return result;
+                }
+            }
+
+        }
+        return result;
     }
+
+    public static void main(String[] args) {
+//        System.out.println(wordEnds("abc1xyz1i1j", "1"));
+//        System.out.println(wordEnds("XYXY", "XY"));
+        System.out.println(wordEnds("abc1xyz11", "1"));
+
+    }
+
+
+
 }
