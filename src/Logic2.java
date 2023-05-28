@@ -1,29 +1,35 @@
 public class Logic2 {
-    //Ex. => shareDigit -
+    //Ex. => makeBricks -
     public static boolean makeBricks(int small, int big, int goal) {
-     boolean makeBricks = false;
+        int sum = 0;
+        while (goal <= sum || big > 0) {
+            if (big > 0 && goal >= sum + 5) {
+                big--;
+                sum = sum + 5;
+            } else {
+                break;
+            }
+        }
 
-     int startBig = big;
-
-     while (goal > 0){
-         if (goal - 5 > 0 && startBig > 0){
-             goal = goal -5;
-             startBig--;
-         }
-         if (startBig == 0){
-             if (goal<=small){
-                 makeBricks =  true;
-             }else {
-                 makeBricks = false;
-             }
-         }
-     }
-
-     return true;
+        while (goal <= sum || small > 0) {
+            if (small > 0 && goal >= sum + 1) {
+                small--;
+                sum = sum + 1;
+            } else {
+                break;
+            }
+        }
+        return goal == sum;
     }
+
+    //Ex. => makeBricks -
+//    public int loneSum(int a, int b, int c) {
+//
+//    }
 
 
     public static void main(String[] args) {
-
+//        System.out.println(makeBricks(3, 1, 8));
+        System.out.println(makeBricks(3, 1, 9));
     }
 }

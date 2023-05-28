@@ -42,7 +42,7 @@ public class Functional {
         return strings.stream().map(String::toLowerCase).collect(Collectors.toList());
     }
 
-    //Ex. => lower -
+    //Ex. => noX -
     public List<String> noX(List<String> strings) {
         return strings.stream().map(s -> s.replace("x", "")).collect(Collectors.toList());
     }
