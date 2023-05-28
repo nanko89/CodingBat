@@ -26,4 +26,10 @@ public class Functional {
     public List<String> moreY(List<String> strings) {
         return strings.stream().map(s -> "y" + s + "y").collect(Collectors.toList());
     }
+
+    //Ex. => math1 -
+    public List<Integer> math1(List<Integer> nums) {
+        return nums.stream().map(num -> (num + 1)*10).collect(Collectors.toList());
+    }
+
 }
