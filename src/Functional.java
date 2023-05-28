@@ -37,4 +37,9 @@ public class Functional {
         return nums.stream().map(num -> num % 10).collect(Collectors.toList());
     }
 
+    //Ex. => lower -
+    public List<String> lower(List<String> strings) {
+        return strings.stream().map(String::toLowerCase).collect(Collectors.toList());
+    }
+
 }
