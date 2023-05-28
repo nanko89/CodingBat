@@ -32,4 +32,9 @@ public class Functional {
         return nums.stream().map(num -> (num + 1)*10).collect(Collectors.toList());
     }
 
+    //Ex. => rightDigit -
+    public List<Integer> rightDigit(List<Integer> nums) {
+        return nums.stream().map(num -> num % 10).collect(Collectors.toList());
+    }
+
 }
