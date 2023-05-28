@@ -17,9 +17,13 @@ public class Functional {
         return strings.stream().map(s -> s + "*").collect(Collectors.toList());
     }
 
+    //Ex. => copies3 -
     public List<String> copies3(List<String> strings) {
         return strings.stream().map(s -> s.repeat(3)).collect(Collectors.toList());
     }
 
-
+    //Ex. => moreY -
+    public List<String> moreY(List<String> strings) {
+        return strings.stream().map(s -> "y" + s + "y").collect(Collectors.toList());
+    }
 }
