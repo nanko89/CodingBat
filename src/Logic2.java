@@ -22,10 +22,23 @@ public class Logic2 {
         return goal == sum;
     }
 
-    //Ex. => makeBricks -
-//    public int loneSum(int a, int b, int c) {
-//
-//    }
+    //Ex. => loneSum -
+    public int loneSum(int a, int b, int c) {
+        int sum = 0;
+        if (a == b || b== c || a== c){
+            if (a==b && c != a){
+                return c;
+            }else if(b == c && a != b){
+                return a;
+            }else if (a == c && a != b){
+                return b;
+            }else {
+                return 0;
+            }
+        }else {
+            return a+ b+ c;
+        }
+    }
 
 
     public static void main(String[] args) {
